@@ -11,25 +11,25 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import {
-  SimpleSubmissionSchema,
-  SubmissionSchema,
-  type Submission,
-} from '@/types/google'
+import { SubmissionSchema, type Submission } from '@/types/google'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useState, type BaseSyntheticEvent } from 'react'
 import { useForm } from 'react-hook-form'
-import { z } from 'zod'
+import { ZodError, z } from 'zod'
+import TweetCta from './TweetCta'
 
 export default function SignForm() {
-  const [responseMessage, setResponseMessage] = useState()
+  const [signResponse, setSignResponse] = useState<{
+    error: ZodError
+    success: boolean
+  }>()
 
-  const form = useForm<z.infer<typeof SimpleSubmissionSchema>>({
-    resolver: zodResolver(SimpleSubmissionSchema),
+  const form = useForm<Submission>({
+    resolver: zodResolver(SubmissionSchema),
   })
 
   async function onSubmit(
-    values: z.infer<typeof SimpleSubmissionSchema>,
+    values: z.infer<typeof SubmissionSchema>,
     e: BaseSyntheticEvent<object, any, any> | undefined,
   ) {
     if (!e) {
@@ -45,9 +45,13 @@ export default function SignForm() {
       body: formData,
     })
     const data = await response.json()
-    if (data.message) {
-      setResponseMessage(data.message)
+    if (data) {
+      setSignResponse(data)
     }
+  }
+
+  if (signResponse?.success === true) {
+    return <TweetCta />
   }
 
   return (
@@ -58,7 +62,9 @@ export default function SignForm() {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Your Name</FormLabel>
+              <FormLabel>
+                Your Name<sup>*</sup>
+              </FormLabel>
               <FormControl>
                 <Input placeholder="Paul Kohlhaas" {...field} />
               </FormControl>
@@ -69,19 +75,58 @@ export default function SignForm() {
             </FormItem>
           )}
         />
-        <Button type="submit">Sign the Manifesto</Button>
+        <FormField
+          control={form.control}
+          name="twitterHandle"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>
+                Your Twitter Handle<sup>*</sup>
+              </FormLabel>
+              <FormControl>
+                <Input placeholder="bio_xyz" {...field} />
+              </FormControl>
+
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Your Email Address</FormLabel>
+              <FormControl>
+                <Input placeholder="brown@hillvalley.co" {...field} />
+              </FormControl>
+              <FormDescription>
+                This is will be <i>not</i> publicly visible.
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="affiliation"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Your Affiliation</FormLabel>
+              <FormControl>
+                <Input placeholder="University of Hill Valley" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type="submit" disabled={!form.formState.isValid}>
+          Sign the Manifesto
+        </Button>
       </form>
-      {responseMessage && <p>{responseMessage}</p>}
+      {signResponse?.success === false && (
+        <p>{signResponse.error.issues.map((e) => e.message).join(',')}</p>
+      )}
     </Form>
   )
 }
-
-/*
- <div className="flex flex-col space-y-6">
-          <Input type="text" placeholder="Email" name="name" />
-          <Button type="submit">Sign</Button>
-          
-        </div>
-      </form>
-    </Form>
-    */

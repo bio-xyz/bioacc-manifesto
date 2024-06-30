@@ -2,7 +2,6 @@
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -25,7 +24,7 @@ console.log(signers)
   <TableBody>
     {
       signers.map((signer, i) => (
-        <TableRow key={`signer-$i`}>
+        <TableRow key={`signer-${i}`}>
           <TableCell>{signer.name}</TableCell>
           <TableCell>{signer.twitterHandle}</TableCell>
           <TableCell>{signer.affiliation}</TableCell>

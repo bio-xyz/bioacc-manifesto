@@ -8,7 +8,11 @@ import { getEntry } from 'astro:content'
 import Prose from './Prose.astro'
 
 const { page, section } = Astro.props
-const entry = await getEntry(page, section)
+const entry = await getEntry('index', section)
+if (!entry) {
+  throw new Error(`No entry found for ${page}/${section}`)
+}
+
 const { Content } = await entry.render()
 ---
 
