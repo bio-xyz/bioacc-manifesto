@@ -1,0 +1,5 @@
+The bio/acc revolution will not be centralized, monetized, or televised. It will be open-sourced, tokenized, and raved.
+
+We need rocket fuel for bio/acc. Not the inflation-financed pools of government grants, regulatory capture capitalism, but a wildfire of scientific and patient communities, open financial protocols, and AI-driven allocation systems. These are the catalysts that will outpace and outperform every traditional model, slashing costs and unleashing scientific abundance and a bio singularity. Macro scale capital formation a la Andrew Lo, at a Manhattan project scale. The Bitcoin of biology.
+
+Crypto allows globally distributed scientific collectives to form and govern capital, build onchain IP and data repositories, test specific therapeutics, circulate breakthroughs and catalyze new ecosystems in service of collective flourishing. As the web evolved from read-write to read-write-own, its symbiosis with biotech will usher in a new paradigm shift: make-evolve-transcend,compressing millions of years of evolution into moments and blocktime.

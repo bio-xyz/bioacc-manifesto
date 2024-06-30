@@ -3,12 +3,21 @@ import SignForm from '@/components/SignForm'
 import Signers from '@/components/Signers.astro'
 import { Picture } from 'astro:assets'
 import img01 from '../../public/img01.png'
+import img02 from '../../public/img02.png'
+import img03 from '../../public/img03.png'
+import img05 from '../../public/img05.png'
+import singularityChart from '../../public/bioacc-singularity-chart.svg'
 import MdBlock from '../components/MdBlock.astro'
 import Layout from '../layouts/Layout.astro'
 ---
 
 <Layout title="bio/acc manifesto">
   <div class="flex flex-col space-y-12">
+    <div class="flex flex-col items-center">
+      <video autoplay loop muted playsinline class="w-72">
+        <source src="/BIO_Heart_Pulse.mp4" type="video/mp4" />
+      </video>
+    </div>
     <h1 class="text-xl font-semibold mb-4 text-center">bio/acc manifesto</h1>
     <MdBlock page="index" section="intro" />
 
@@ -19,6 +28,54 @@ import Layout from '../layouts/Layout.astro'
       class="h-96 overflow-hidden object-cover object-center rounded-3xl"
     />
     <MdBlock page="index" section="intro2" />
+
+    <h3 class="text-xl font-semibold mt-4">bio/acc principles</h3>
+    <MdBlock page="index" section="principles" />
+
+    <Picture
+      src={img02}
+      formats={['webp', 'jpg']}
+      alt="image2"
+      class="h-96 overflow-hidden object-cover object-center rounded-3xl"
+    />
+    <MdBlock page="index" section="principles2" />
+
+    <h3 class="text-xl font-semibold">The bio/acc trinity</h3>
+    <MdBlock page="index" section="trinity" />
+    <Picture
+      src={img03}
+      formats={['webp', 'jpg']}
+      alt="image3"
+      class="h-2/3 overflow-hidden object-cover object-center rounded-3xl"
+    />
+    <MdBlock page="index" section="trinity2" />
+
+    <h3 class="text-xl font-semibold">Bio Singularity</h3>
+    <MdBlock page="index" section="singularity" />
+    <Picture
+      src={singularityChart}
+      formats={['webp', 'jpg']}
+      alt="10 year pure exponential Bio/Acceleration Path"
+    />
+    <MdBlock page="index" section="singularity2" />
+
+    <div class="flex flex-row space-x-24 items-center">
+      <div>
+        <Picture
+          src={img05}
+          formats={['webp', 'jpg']}
+          alt="exponential Bio/Acceleration Path"
+          class="w-44 object-cover object-center"
+        />
+      </div>
+      <div>
+        <p class="text-primary">bioacc.eth</p>
+        <p>
+          Thanks to Tristan Roberts, Vitalik Buterin, Dima Buterin, Bryan
+          Johnson, Scott Moore for your review and comments.
+        </p>
+      </div>
+    </div>
     <div class="flex flex-col space-y-4">
       <h3 class="text-4xl">Signers</h3>
       <Signers />
