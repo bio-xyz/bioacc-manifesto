@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import { Picture } from "astro:assets";
 import img01 from "../../public/img01.png";
 import MdBlock from "../components/MdBlock.astro";
+import Form from "@/components/Form.astro";
 ---
 
 <Layout title="bio/acc manifesto">
@@ -18,8 +19,9 @@ import MdBlock from "../components/MdBlock.astro";
     />
     <MdBlock page="index" section="intro2" />
   </div>
-
-  <p>foo</p>
+  <div slot="post-actions">
+    <Form />
+  </div>
 </Layout>
 
 <style></style>
