@@ -1,0 +1,36 @@
+---
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table'
+import { readData } from '../backend/google'
+
+const signers = await readData()
+console.log(signers)
+---
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Name</TableHead>
+      <TableHead>Twitter</TableHead>
+      <TableHead>Affiliation</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    {
+      signers.map((signer, i) => (
+        <TableRow key={`signer-$i`}>
+          <TableCell>{signer.name}</TableCell>
+          <TableCell>{signer.twitterHandle}</TableCell>
+          <TableCell>{signer.affiliation}</TableCell>
+        </TableRow>
+      ))
+    }
+  </TableBody>
+</Table>

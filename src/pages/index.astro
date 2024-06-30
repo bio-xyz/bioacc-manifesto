@@ -1,9 +1,10 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import { Picture } from "astro:assets";
-import img01 from "../../public/img01.png";
-import MdBlock from "../components/MdBlock.astro";
-import Form from "@/components/Form.astro";
+import SignForm from '@/components/SignForm'
+import { Picture } from 'astro:assets'
+import img01 from '../../public/img01.png'
+import MdBlock from '../components/MdBlock.astro'
+import Layout from '../layouts/Layout.astro'
+import Signers from '@/components/Signers.astro'
 ---
 
 <Layout title="bio/acc manifesto">
@@ -13,14 +14,19 @@ import Form from "@/components/Form.astro";
 
     <Picture
       src={img01}
-      formats={["webp", "jpg"]}
+      formats={['webp', 'jpg']}
       alt="image1"
       class="h-96 overflow-hidden object-cover object-center rounded-3xl"
     />
     <MdBlock page="index" section="intro2" />
+    <div class="flex flex-col space-y-4">
+      <h3 class="text-4xl">Signers</h3>
+      <Signers />
+    </div>
   </div>
+
   <div slot="post-actions">
-    <Form />
+    <SignForm client:load />
   </div>
 </Layout>
 
