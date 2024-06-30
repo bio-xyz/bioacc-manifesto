@@ -1,0 +1,17 @@
+---
+interface Props {
+  page: string;
+	section: string;
+}
+
+import { getEntry } from 'astro:content';
+import Prose from './Prose.astro';
+
+const { page, section } = Astro.props;
+const entry = await getEntry(page, section);
+const { Content } = await entry.render();
+---
+
+<Prose>
+  <Content />
+</Prose>

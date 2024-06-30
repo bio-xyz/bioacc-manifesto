@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800">
+  <!-- Background -->
+  <rect width="1000" height="800" fill="#000000"/>
+  
+  <!-- Outer Box -->
+  <rect x="50" y="50" width="900" height="700" fill="none" stroke="#00ff00" stroke-width="3"/>
+  
+  <!-- Title -->
+  <text x="500" y="30" font-family="Arial" font-size="24" text-anchor="middle" fill="#00ff00">10-Year Bio/Acc Path to Singularity</text>
+  
+  <!-- Axes -->
+  <line x1="100" y1="700" x2="900" y2="700" stroke="#00ff00" stroke-width="2"/>
+  <line x1="100" y1="700" x2="100" y2="100" stroke="#00ff00" stroke-width="2"/>
+  
+  <!-- Axis Labels -->
+  <text x="500" y="740" font-family="Arial" font-size="16" text-anchor="middle" fill="#00ff00">Years from Present</text>
+  <text x="70" y="400" font-family="Arial" font-size="16" text-anchor="middle" transform="rotate(-90 70 400)" fill="#00ff00">Biotechnological Complexity and Impact</text>
+  
+  <!-- Pure Exponential Curve -->
+  <path d="M100 700 C 300 700, 700 700, 900 100" stroke="#00ff00" stroke-width="3" fill="none"/>
+  
+  <!-- Time Markers -->
+  <g font-family="Arial" font-size="12" fill="#00ff00">
+    <text x="100" y="720" text-anchor="middle">0</text>
+    <text x="260" y="720" text-anchor="middle">2</text>
+    <text x="420" y="720" text-anchor="middle">4</text>
+    <text x="580" y="720" text-anchor="middle">6</text>
+    <text x="740" y="720" text-anchor="middle">8</text>
+    <text x="900" y="720" text-anchor="middle">10</text>
+  </g>
+  
+  <!-- Milestones -->
+  <g font-family="Arial" font-size="10" fill="#00ff00">
+    <text x="120" y="690">CRISPR 2.0</text>
+    <text x="220" y="670">AI-Driven Drug Discovery</text>
+    <text x="320" y="640">Whole Genome Synthesis</text>
+    <text x="420" y="600">Brain-Computer Interfaces</text>
+    <text x="520" y="540">Nanobot Medical Applications</text>
+    <text x="620" y="460">Bio-Computational Merge</text>
+    <text x="720" y="350">Longevity Escape Velocity</text>
+    <text x="820" y="220">Molecular Assemblers</text>
+    <text x="880" y="120" font-size="14">Bio/Acc Singularity</text>
+  </g>
+  
+  <!-- Impact Areas -->
+  <g font-family="Arial" font-size="12" fill="#00ffff">
+    <text x="180" y="680">Personalized Medicine</text>
+    <text x="380" y="620">Reversing Aging</text>
+    <text x="580" y="500">Post-Scarcity Biology</text>
+    <text x="780" y="280">Human-AI Symbiosis</text>
+  </g>
+  
+  <!-- Key Technologies -->
+  <g font-family="Arial" font-size="11" fill="#ff00ff">
+    <text x="270" y="655">Synthetic Biology</text>
+    <text x="470" y="570">Neuroengineering</text>
+    <text x="670" y="410">Quantum Biocomputing</text>
+    <text x="850" y="180">Molecular Nanotechnology</text>
+  </g>
+  
+  <!-- Bio/Acc Principles -->
+  <g font-family="Arial" font-size="10" fill="#ffff00">
+    <text x="350" y="630">Decentralized Biopower</text>
+    <text x="550" y="520">Ethical Enhancement</text>
+    <text x="750" y="320">Mind Uploading Ethics</text>
+    <text x="870" y="150">Transhuman Rights</text>
+  </g>
+  
+  <!-- Additional Concepts -->
+  <g font-family="Arial" font-size="10" fill="#ff8c00">
+    <text x="300" y="650">Exocortex Development</text>
+    <text x="500" y="550">Biological Immortality</text>
+    <text x="700" y="380">Sentient AI Integration</text>
+    <text x="840" y="200">Space Bioengineering</text>
+  </g>
+  
+  <!-- Legend -->
+  <rect x="720" y="580" width="200" height="110" fill="#000000" stroke="#00ff00"/>
+  <text x="730" y="600" font-family="Arial" font-size="12" fill="#00ff00">Legend:</text>
+  <text x="730" y="620" font-family="Arial" font-size="10" fill="#00ff00">⬤ Bio-Acceleration Curve</text>
+  <text x="730" y="640" font-family="Arial" font-size="10" fill="#00ffff">▪ Impact Areas</text>
+  <text x="730" y="660" font-family="Arial" font-size="10" fill="#ff00ff">▪ Key Technologies</text>
+  <text x="730" y="680" font-family="Arial" font-size="10" fill="#ffff00">▪ Bio/Acc Principles</text>
+  <text x="730" y="700" font-family="Arial" font-size="10" fill="#ff8c00">▪ Additional Concepts</text>
+</svg>
