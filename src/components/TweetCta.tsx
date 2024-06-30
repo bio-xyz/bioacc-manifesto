@@ -1,3 +1,5 @@
+'use client'
+
 import { XEmbed } from 'react-social-media-embed'
 import { Button } from './ui/button'
 
@@ -14,7 +16,7 @@ export default function TweetCta() {
         url={TWEET_URL}
         width={500}
         twitterTweetEmbedProps={{
-          tweetId: '1796199193461043490',
+          tweetId: TWEET_ID,
           options: {
             theme: 'dark',
             align: 'center',

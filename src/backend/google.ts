@@ -18,7 +18,7 @@ const makeClient = () => {
 
 export async function appendData(submission: Submission) {
   const Sheets = makeClient()
-  Sheets.spreadsheets.values.append({
+  return Sheets.spreadsheets.values.append({
     spreadsheetId: SPREADSHEET_ID,
     range: 'submissions!A2:E',
     valueInputOption: 'USER_ENTERED',
