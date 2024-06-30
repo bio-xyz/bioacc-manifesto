@@ -3,11 +3,11 @@ import mdx from '@astrojs/mdx'
 import tailwind from '@astrojs/tailwind'
 import react from '@astrojs/react'
 
-import vercel from '@astrojs/vercel/serverless'
+import vercelServerless from '@astrojs/vercel/serverless'
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'hybrid',
+  output: 'server',
   integrations: [
     mdx(),
     tailwind({
@@ -15,7 +15,13 @@ export default defineConfig({
     }),
     react(),
   ],
-  adapter: vercel(),
+  adapter: vercelServerless({
+    imageService: true,
+    edgeMiddleware: true,
+    isr: {
+      expiration: 60,
+    },
+  }),
   vite: {
     ssr: {
       noExternal: 'react-tweet',
