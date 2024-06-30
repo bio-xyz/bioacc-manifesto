@@ -16,4 +16,9 @@ export default defineConfig({
     react(),
   ],
   adapter: vercel(),
+  vite: {
+    ssr: {
+      noExternal: 'react-tweet',
+    },
+  },
 })
