@@ -13,8 +13,8 @@ import {
 import { Input } from '@/components/ui/input'
 import { SubmissionSchema, type Submission } from '@/types/google'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useState, type BaseSyntheticEvent } from 'react'
-import { useForm } from 'react-hook-form'
+import { useEffect, useState, type BaseSyntheticEvent } from 'react'
+import { useForm, useFormState } from 'react-hook-form'
 import { ZodError, z } from 'zod'
 import TweetCta from './TweetCta'
 
@@ -26,7 +26,31 @@ export default function SignForm() {
 
   const form = useForm<Submission>({
     resolver: zodResolver(SubmissionSchema),
+    reValidateMode: 'onChange',
+    mode: 'onChange',
+    progressive: true,
+    defaultValues: {
+      name: '',
+      twitterHandle: '',
+      email: undefined,
+      affiliation: undefined,
+    },
   })
+
+  useEffect(() => {
+    if (signResponse?.success === true) {
+      form.reset({
+        name: '',
+        twitterHandle: '',
+        email: undefined,
+        affiliation: undefined,
+      })
+    }
+  }, [form, signResponse])
+
+  const formState = useFormState(form)
+
+  const { isDirty, isValid, errors } = formState
 
   async function onSubmit(
     values: z.infer<typeof SubmissionSchema>,
@@ -39,13 +63,14 @@ export default function SignForm() {
 
     e.preventDefault()
     const formData = new FormData(e.target as HTMLFormElement)
-    console.log(formData)
+
     const response = await fetch('/api/sign', {
       method: 'POST',
       body: formData,
     })
     const data = await response.json()
     if (data) {
+      form.reset()
       setSignResponse(data)
     }
   }
@@ -66,11 +91,9 @@ export default function SignForm() {
                 Your Name<sup>*</sup>
               </FormLabel>
               <FormControl>
-                <Input placeholder="Paul Kohlhaas" {...field} />
+                <Input placeholder="Albert Einstein" {...field} />
               </FormControl>
-              <FormDescription>
-                This is will be publicly visible.
-              </FormDescription>
+              <FormDescription>This will be publicly visible.</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -84,9 +107,9 @@ export default function SignForm() {
                 Your Twitter Handle<sup>*</sup>
               </FormLabel>
               <FormControl>
-                <Input placeholder="bio_xyz" {...field} />
+                <Input placeholder="albert_einstein" {...field} />
               </FormControl>
-
+              <FormDescription>This will be publicly visible.</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -96,12 +119,19 @@ export default function SignForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Your Email Address</FormLabel>
+              <FormLabel>Your Email Address (Optional)</FormLabel>
               <FormControl>
-                <Input placeholder="brown@hillvalley.co" {...field} />
+                <Input
+                  placeholder="albert@einstein.com"
+                  {...field}
+                  onChange={(event) =>
+                    field.onChange(event.target.value || undefined)
+                  }
+                  value={field.value || undefined}
+                />
               </FormControl>
               <FormDescription>
-                This is will be <i>not</i> publicly visible.
+                This will <i>not</i> be publicly visible.
               </FormDescription>
               <FormMessage />
             </FormItem>
@@ -112,15 +142,23 @@ export default function SignForm() {
           name="affiliation"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Your Affiliation</FormLabel>
+              <FormLabel>Your Affiliation (Optional)</FormLabel>
               <FormControl>
-                <Input placeholder="University of Hill Valley" {...field} />
+                <Input
+                  placeholder="University of Relativity"
+                  {...field}
+                  onChange={(event) =>
+                    field.onChange(event.target.value || undefined)
+                  }
+                  value={field.value || undefined}
+                />
               </FormControl>
+              <FormDescription>This will be publicly visible.</FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit" disabled={!form.formState.isValid}>
+        <Button type="submit" disabled={!isValid}>
           Sign the Manifesto
         </Button>
       </form>
