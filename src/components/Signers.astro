@@ -14,27 +14,22 @@ const signers = await readData()
 ---
 
 <Table>
-  <TableHeader>
-    <TableRow>
-      <TableHead>Name</TableHead>
-      <TableHead className="hidden sm:flex">Twitter</TableHead>
-      <TableHead>Affiliation</TableHead>
-    </TableRow>
-  </TableHeader>
   <TableBody>
     {
       signers.map((signer, i) => (
         <TableRow key={`signer-${i}`}>
-          <TableCell>
-            {signer.name}{' '}
+          <TableCell className="p-0">
+            <div class="text-primary font-normal">{signer.name}</div>
             <div class="text-xs text-slate-400 sm:hidden">
-              {signer.twitterHandle}
+              @{signer.twitterHandle}
             </div>
           </TableCell>
           <TableCell className="hidden sm:flex">
-            {signer.twitterHandle}
+            @{signer.twitterHandle}
           </TableCell>
-          <TableCell>{signer.affiliation}</TableCell>
+          <TableCell className="text-right">
+            {signer.affiliation || 'n.a.'}
+          </TableCell>
         </TableRow>
       ))
     }

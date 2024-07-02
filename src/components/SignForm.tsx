@@ -131,7 +131,8 @@ export default function SignForm() {
                 />
               </FormControl>
               <FormDescription>
-                This will <i>not</i> be publicly visible.
+                This will <strong className="font-bold">NOT</strong> be publicly
+                visible.
               </FormDescription>
               <FormMessage />
             </FormItem>
@@ -158,7 +159,7 @@ export default function SignForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" disabled={!isValid}>
+        <Button type="submit" disabled={!isValid} className="text-lg">
           Sign the Manifesto
         </Button>
       </form>
