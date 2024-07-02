@@ -20,7 +20,7 @@ import TweetCta from './TweetCta'
 
 export default function SignForm() {
   const [signResponse, setSignResponse] = useState<{
-    error: ZodError
+    error?: ZodError
     success: boolean
   }>()
 
@@ -163,7 +163,7 @@ export default function SignForm() {
         </Button>
       </form>
       {signResponse?.success === false && (
-        <p>{signResponse.error.issues.map((e) => e.message).join(',')}</p>
+        <p>{signResponse.error?.issues.map((e) => e.message).join(',')}</p>
       )}
     </Form>
   )
