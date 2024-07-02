@@ -7,7 +7,7 @@ export const TWEET_ID = '1796199193461043490'
 export const TWEET_URL =
   'https://twitter.com/bio_xyz/status/1796199193461043490'
 
-export const REPOST_TWEET_INTENT = `https://twitter.com/intent/retweet?tweet_id=${TWEET_ID}`
+export const REPOST_TWEET_INTENT = TWEET_URL //`https://twitter.com/intent/retweet?tweet_id=${TWEET_ID}`
 
 export default function TweetCta() {
   return (
