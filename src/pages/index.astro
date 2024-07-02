@@ -73,24 +73,23 @@ import { Icon } from 'astro-icon/components'
     />
     <MdBlock page="index" section="singularity2" />
 
-    <div class="flex flex-row space-x-8 items-center">
-      <div class="w-1/4 flex justify-center">
-        <Picture
-          src={img05}
-          formats={['webp', 'jpg']}
-          alt="exponential Bio/Acceleration Path"
-          class="object-cover object-center md:w-32"
-        />
-      </div>
-      <div class="w-3/4">
-        <p class="text-primary">bioacc.eth</p>
-        <p>
+    <div class="flex flex-col space-y-12 items-center">
+      <Picture
+        src={img05}
+        formats={['webp', 'jpg']}
+        alt="exponential Bio/Acceleration Path"
+        class="object-cover object-center w-44"
+      />
+      <div>
+        <p class="text-primary text-center">bioacc.eth</p>
+        <p class="md:px-24">
           Thanks to Tristan Roberts, Vitalik Buterin, Dima Buterin, Bryan
           Johnson, Scott Moore for your review and comments.
         </p>
       </div>
     </div>
-    <div class="flex flex-col space-y-4">
+
+    <div class="flex flex-col space-y-4 pt-12">
       <h3 class="text-4xl">Signers</h3>
       <Signers />
     </div>
