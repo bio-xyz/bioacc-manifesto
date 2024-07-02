@@ -96,7 +96,7 @@
   }
   
   p {
-    @apply leading-6 [&:not(:first-child)]:mt-6 font-light text-justify;
+    @apply leading-6 [&:not(:first-child)]:mt-6 font-light;
   }
   
   blockquote {
