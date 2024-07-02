@@ -1,60 +1,41 @@
 ---
 import SignForm from '@/components/SignForm'
 import Signers from '@/components/Signers.astro'
-import { Picture } from 'astro:assets'
-import img01 from '../../public/img01.png'
-import img02 from '../../public/img02.png'
-import img03 from '../../public/img03.png'
-import img05 from '../../public/img05.png'
-import singularityChart from '../../public/bioacc-singularity-chart.svg'
-import MdBlock from '../components/MdBlock.astro'
-import Layout from '../layouts/Layout.astro'
 import { Button } from '@/components/ui/button'
 import { Icon } from 'astro-icon/components'
+import { Picture } from 'astro:assets'
+import singularityChart from '../../public/bioacc-singularity-chart.svg'
+import img03 from '../../public/img03.png'
+import img05 from '../../public/img05.png'
+import MdBlock from '../components/MdBlock.astro'
+import Layout from '../layouts/Layout.astro'
 ---
 
 <Layout title="bio/acc manifesto">
-  <div class="flex flex-col space-y-12">
+  <div class="flex flex-col space-y-16 mb-24">
     <div class="flex flex-col items-center">
-      <div class="absolute right-0 top-0"></div>
-      <video autoplay loop muted playsinline class="w-72">
+      <video autoplay loop muted playsinline class="w-2/3">
         <source src="/BIO_Heart_Pulse.mp4" type="video/mp4" />
       </video>
     </div>
-    <div class="flex items-center justify-between flex-col sm:flex-row">
-      <div class="flex md:w-1/3"></div>
-      <h1 class="text-xl font-semibold mb-4 text-center w-full md:w-1/3">
+    <div
+      class="flex flex-col sm:flex-row border-y-[1px] py-4 space-y-4 sm:space-y-0 items-center"
+    >
+      <h1 class="text-3xl font-normal w-full text-center sm:text-left">
         bio/acc manifesto
       </h1>
-
-      <div class="md:flex md:w-1/3 justify-end top-0 right-0">
-        <Button className="px-12" id="scroll-btn"
-          >Sign <Icon name="CaretDoubleDown" class="ml-2" />
-        </Button>
-      </div>
+      <Button className="px-8 text-lg w-32 " id="scroll-btn"
+        >Sign <Icon name="CaretDoubleDown" class="ml-2" />
+      </Button>
     </div>
+  </div>
+  <div class="flex flex-col space-y-12">
     <MdBlock page="index" section="intro" />
 
-    <Picture
-      src={img01}
-      formats={['webp', 'jpg']}
-      alt="image1"
-      class="h-96 overflow-hidden object-cover object-center rounded-3xl"
-    />
-    <MdBlock page="index" section="intro2" />
-
-    <h3 class="text-xl font-semibold mt-4">bio/acc principles</h3>
+    <h3 class="pt-8">bio/acc principles</h3>
     <MdBlock page="index" section="principles" />
 
-    <Picture
-      src={img02}
-      formats={['webp', 'jpg']}
-      alt="image2"
-      class="h-96 overflow-hidden object-cover object-center rounded-3xl"
-    />
-    <MdBlock page="index" section="principles2" />
-
-    <h3 class="text-xl font-semibold">The bio/acc trinity</h3>
+    <h3 class="pt-8">The bio/acc trinity</h3>
     <MdBlock page="index" section="trinity" />
     <Picture
       src={img03}
@@ -64,7 +45,7 @@ import { Icon } from 'astro-icon/components'
     />
     <MdBlock page="index" section="trinity2" />
 
-    <h3 class="text-xl font-semibold">Bio Singularity</h3>
+    <h3 class="pt-8">Bio Singularity</h3>
     <MdBlock page="index" section="singularity" />
     <Picture
       src={singularityChart}
@@ -72,31 +53,34 @@ import { Icon } from 'astro-icon/components'
       alt="10 year pure exponential Bio/Acceleration Path"
     />
     <MdBlock page="index" section="singularity2" />
+  </div>
 
-    <div class="flex flex-col space-y-12 items-center">
-      <Picture
-        src={img05}
-        formats={['webp', 'jpg']}
-        alt="exponential Bio/Acceleration Path"
-        class="object-cover object-center w-44"
-      />
-      <div>
-        <p class="text-primary text-center">bioacc.eth</p>
-        <p class="md:px-24">
-          Thanks to Tristan Roberts, Vitalik Buterin, Dima Buterin, Bryan
-          Johnson, Scott Moore for your review and comments.
-        </p>
-      </div>
+  <div slot="signers" class="flex flex-col space-y-24">
+    <div class="flex flex-col">
+      <h3 class="text-3xl my-8">Signed by</h3>
+      <Signers />
     </div>
 
-    <div class="flex flex-col space-y-4 pt-12">
-      <h3 class="text-4xl">Signers</h3>
-      <Signers />
+    <div class="flex flex-col" id="sign-form">
+      <h3 class="text-3xl my-8">Sign the Manifesto</h3>
+      <SignForm client:load />
     </div>
   </div>
 
-  <div slot="post-actions" id="sign-form">
-    <SignForm client:load />
+  <div slot="thankyou" class="flex flex-col space-y-12 items-center py-24">
+    <Picture
+      src={img05}
+      formats={['webp', 'jpg']}
+      alt="exponential Bio/Acceleration Path"
+      class="object-cover object-center w-32"
+    />
+    <div class="md:px-20 py-4">
+      <p class="text-primary">bioacc.eth</p>
+      <p>
+        Thanks to Tristan Roberts, Vitalik Buterin, Dima Buterin, Bryan Johnson,
+        Scott Moore for your review and comments.
+      </p>
+    </div>
   </div>
 </Layout>
 
