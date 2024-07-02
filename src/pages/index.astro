@@ -3,7 +3,7 @@ import SignForm from '@/components/SignForm'
 import Signers from '@/components/Signers.astro'
 import { Button } from '@/components/ui/button'
 import { Icon } from 'astro-icon/components'
-import { Picture } from 'astro:assets'
+import { Picture, Image } from 'astro:assets'
 import singularityChart from '../../public/bioacc-singularity-chart.svg'
 import img03 from '../../public/img03.png'
 import img05 from '../../public/img05.png'
@@ -50,6 +50,7 @@ import Layout from '../layouts/Layout.astro'
     <Picture
       src={singularityChart}
       formats={['webp', 'jpg']}
+      width="800"
       alt="10 year pure exponential Bio/Acceleration Path"
     />
     <MdBlock page="index" section="singularity2" />
