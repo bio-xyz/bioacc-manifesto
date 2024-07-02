@@ -159,7 +159,7 @@ export default function SignForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" disabled={!isValid} className="text-lg">
+        <Button type="submit" disabled={!isValid} className="text-lg px-7">
           Sign the Manifesto
         </Button>
       </form>
