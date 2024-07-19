@@ -7,6 +7,7 @@ import { Picture, Image } from 'astro:assets'
 import singularityChart from '../../public/bioacc-singularity-chart.svg'
 import img03 from '../../public/img03.png'
 import img05 from '../../public/img05.png'
+import img06 from '../../public/img06.png'
 import MdBlock from '../components/MdBlock.astro'
 import Layout from '../layouts/Layout.astro'
 ---
@@ -31,9 +32,22 @@ import Layout from '../layouts/Layout.astro'
   </div>
   <div class="flex flex-col space-y-12">
     <MdBlock page="index" section="intro" />
-
+    <div class="self-center">
+      <Picture
+        src={img06}
+        formats={['webp', 'jpg']}
+        alt="image6"
+        class="h-2/3 overflow-hidden object-cover object-center rounded-3xl"
+      />
+    </div>
     <h3 class="pt-8">bio/acc principles</h3>
     <MdBlock page="index" section="principles" />
+    <Picture
+      src={img03}
+      formats={['webp', 'jpg']}
+      alt="image3"
+      class="h-2/3 overflow-hidden object-cover object-center rounded-3xl"
+    />
 
     <h3 class="pt-8">The bio/acc trinity</h3>
     <MdBlock page="index" section="trinity" />
