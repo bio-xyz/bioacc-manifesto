@@ -25,7 +25,13 @@ const signers = await readData()
             </div>
           </TableCell>
           <TableCell className="hidden sm:flex">
-            @{signer.twitterHandle}
+            <a
+              href={`https://x.com/${signer.twitterHandle}`}
+              target="_blank"
+              class="hover:underline"
+            >
+              @{signer.twitterHandle}
+            </a>
           </TableCell>
           <TableCell className="text-right">
             {signer.affiliation || 'n.a.'}
