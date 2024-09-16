@@ -2,9 +2,8 @@
 
 import { Button } from './ui/button'
 
-export const TWEET_ID = '1796199193461043490'
 export const TWEET_URL =
-  'https://twitter.com/bio_xyz/status/1796199193461043490'
+  "https://twitter.com/intent/post?text=✺%20I've%20just%20signed%20the%20bio%2Facc%20manifesto%20✺%0A%0AIt's%20time%20to%20accelerate%20the%20%23bioacc%20movement%20-%20from%20wetware%2C%20to%20software%20to%20dreamware%20🧪%0A%0AJoin%20me%20in%20signing%20the%20manifesto%20and%20accelerating%20biotech%20➠%20&url=bioacc.life"
 
 export default function TweetCta() {
   return (
