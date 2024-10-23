@@ -1,0 +1,108 @@
+---
+import SignForm from '@/components/SignForm'
+import Signers from '@/components/Signers.astro'
+import { Button } from '@/components/ui/button'
+import { Icon } from 'astro-icon/components'
+import { Picture, Image } from 'astro:assets'
+import singularityChart from '../../../public/bioacc-singularity-chart.svg'
+import img03 from '../../../public/img03.png'
+import img05 from '../../../public/img05.png'
+import img06 from '../../../public/img06.jpg'
+import MdBlock from '../../components/MdBlock.astro'
+import Layout from '../../layouts/Layout.astro'
+---
+
+<Layout title="bio/acc manifesto">
+  <div class="flex flex-col space-y-16 mb-24">
+    <div class="flex flex-col items-center">
+      <video autoplay loop muted playsinline class="w-2/3">
+        <source src="/BIO_Heart_Pulse.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div
+      class="flex flex-col sm:flex-row border-y-[1px] py-4 space-y-4 sm:space-y-0 items-center"
+    >
+      <h1 class="text-3xl font-normal w-full text-center sm:text-left">
+        ⽣物加速宣⾔
+      </h1>
+      <Button className="px-8 text-lg w-32 " id="scroll-btn"
+        >Sign <Icon name="CaretDoubleDown" class="ml-2" />
+      </Button>
+    </div>
+  </div>
+  <div class="flex flex-col space-y-12">
+    <MdBlock page="index" section="intro" locale="zn"/>
+    <div class="self-center">
+      <Picture
+        src={img06}
+        formats={['webp', 'jpg']}
+        alt="image6"
+        class="h-2/3 overflow-hidden object-cover object-center rounded-3xl"
+      />
+    </div>
+    <h3 class="pt-8">⽣物加速原则</h3>
+    <MdBlock page="index" section="principles" locale="zn"/>
+
+    <h3 class="pt-8">⽣物加速三位⼀体</h3>
+    <MdBlock page="index" section="trinity" locale="zn"/>
+    <Picture
+      src={img03}
+      formats={['webp', 'jpg']}
+      alt="image3"
+      class="h-2/3 overflow-hidden object-cover object-center rounded-3xl"
+    />
+    <MdBlock page="index" section="trinity2" locale="zn"/>
+
+    <h3 class="pt-8">⽣物奇点</h3>
+    <MdBlock page="index" section="singularity" locale="zn"/>
+    <Picture
+      src={singularityChart}
+      formats={['webp', 'jpg']}
+      width="800"
+      alt="10 year pure exponential Bio/Acceleration Path"
+    />
+    <MdBlock page="index" section="singularity2" locale="zn"/>
+  </div>
+
+  <div slot="signers" class="flex flex-col space-y-24">
+    <div class="flex flex-col">
+      <h3 class="text-3xl my-8">Signed by</h3>
+      <Signers />
+    </div>
+
+    <div class="flex flex-col" id="sign-form">
+      <h3 class="text-3xl my-8">Sign the Manifesto</h3>
+      <SignForm client:load />
+    </div>
+  </div>
+
+  <div slot="thankyou" class="flex flex-col space-y-12 items-center py-24">
+    <Picture
+      src={img05}
+      formats={['webp', 'jpg']}
+      alt="exponential Bio/Acceleration Path"
+      class="object-cover object-center w-32"
+    />
+    <div class="md:px-20">
+      <p class="text-primary">bioacc.eth</p>
+      <!-- <p>
+        Thanks to Tristan Roberts, Vitalik Buterin, Dima Buterin, Bryan Johnson,
+        Scott Moore for your review and comments.
+      </p> -->
+    </div>
+  </div>
+</Layout>
+
+<style></style>
+
+<script>
+  import animateScrollTo from 'animated-scroll-to'
+
+  const scrollBtn = document.querySelector('#scroll-btn')
+  const scrollTarget = document.querySelector('#sign-form')
+  if (scrollBtn && scrollTarget) {
+    scrollBtn.addEventListener('click', () => {
+      animateScrollTo(scrollTarget)
+    })
+  }
+</script>

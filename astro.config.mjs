@@ -29,4 +29,12 @@ export default defineConfig({
       noExternal: 'react-tweet',
     },
   },
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'zn'],
+    // routing: {
+    //   prefixDefaultLocale: false,
+    //   redirectToDefaultLocale: true,
+    // },
+  },
 })
