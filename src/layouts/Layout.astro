@@ -6,6 +6,7 @@ import '@fontsource/ibm-plex-mono/600.css'
 import '@fontsource/ibm-plex-mono/700.css'
 
 import '@/styles/globals.css'
+import { getRelativeLocaleUrl } from 'astro:i18n'
 
 interface Props {
   title: string
@@ -121,7 +122,13 @@ const { title } = Astro.props
           <slot name="signers" />
         </div>
       </section>
-      <footer class="p-4 text-center"></footer>
+      <footer class="p-4 text-center">
+        <div class="flex flex-row justify-end gap-2 text-4xl">
+          <div><a href={getRelativeLocaleUrl('en', '/')}>🇬🇧</a></div>
+          <div><a href={getRelativeLocaleUrl('zn', '/')}>🇨🇳</a></div>
+        </div>
+        
+      </footer>
     </div>
   </body>
 </html>
