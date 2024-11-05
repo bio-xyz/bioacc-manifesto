@@ -31,7 +31,7 @@ import Layout from '../../layouts/Layout.astro'
     </div>
   </div>
   <div class="flex flex-col space-y-12">
-    <MdBlock page="index" section="intro" locale="zh"/>
+    <MdBlock page="index" section="intro" locale="zh" />
     <div class="self-center">
       <Picture
         src={img06}
@@ -41,27 +41,27 @@ import Layout from '../../layouts/Layout.astro'
       />
     </div>
     <h3 class="pt-8">⽣物加速原则</h3>
-    <MdBlock page="index" section="principles" locale="zh"/>
+    <MdBlock page="index" section="principles" locale="zh" />
 
     <h3 class="pt-8">⽣物加速三位⼀体</h3>
-    <MdBlock page="index" section="trinity" locale="zh"/>
+    <MdBlock page="index" section="trinity" locale="zh" />
     <Picture
       src={img03}
       formats={['webp', 'jpg']}
       alt="image3"
       class="h-2/3 overflow-hidden object-cover object-center rounded-3xl"
     />
-    <MdBlock page="index" section="trinity2" locale="zh"/>
+    <MdBlock page="index" section="trinity2" locale="zh" />
 
     <h3 class="pt-8">⽣物奇点</h3>
-    <MdBlock page="index" section="singularity" locale="zh"/>
+    <MdBlock page="index" section="singularity" locale="zh" />
     <Picture
       src={singularityChart}
       formats={['webp', 'jpg']}
       width="800"
       alt="10 year pure exponential Bio/Acceleration Path"
     />
-    <MdBlock page="index" section="singularity2" locale="zh"/>
+    <MdBlock page="index" section="singularity2" locale="zh" />
   </div>
 
   <div slot="signers" class="flex flex-col space-y-24">
@@ -72,6 +72,15 @@ import Layout from '../../layouts/Layout.astro'
 
     <div class="flex flex-col" id="sign-form">
       <h3 class="text-3xl my-8">Sign the Manifesto</h3>
+      <p class="leading-10">Sign the manifesto in the following steps:</p>
+      <ol class="mb-8 leading-10">
+        <li>1. Submit your information in the form below</li>
+        <li>2. Share hte manifesto on X using the hashtag #bioacc</li>
+        <li>
+          3. Once verified, your name will be added to the list of Manifesto
+          signers
+        </li>
+      </ol>
       <SignForm client:load />
     </div>
   </div>
