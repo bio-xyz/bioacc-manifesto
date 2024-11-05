@@ -20,7 +20,7 @@ export async function appendData(submission: Submission) {
   const Sheets = makeClient()
   return Sheets.spreadsheets.values.append({
     spreadsheetId: SPREADSHEET_ID,
-    range: 'submissions!A2:E',
+    range: 'submissions!A2:F',
     valueInputOption: 'USER_ENTERED',
     requestBody: {
       values: [
@@ -30,7 +30,7 @@ export async function appendData(submission: Submission) {
           submission.twitterHandle,
           submission.affiliation,
           new Date().toUTCString(),
-          submission.wallet,
+          'foo ' + submission.wallet,
         ],
       ],
     },
