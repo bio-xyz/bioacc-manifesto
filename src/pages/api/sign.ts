@@ -12,6 +12,7 @@ export const POST: APIRoute = async ({ request }) => {
     twitterHandle: data.get('twitterHandle')?.toString(),
     email: data.get('email')?.toString() || undefined,
     affiliation: data.get('affiliation')?.toString() || undefined,
+    wallet: data.get('wallet')?.toString() || undefined,
   }
 
   const parsed = await SubmissionSchema.safeParseAsync(submission)

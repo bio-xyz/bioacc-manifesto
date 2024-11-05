@@ -30,7 +30,7 @@ export async function appendData(submission: Submission) {
           submission.twitterHandle,
           submission.affiliation,
           new Date().toUTCString(),
-          'foo ' + submission.wallet,
+          submission.wallet,
         ],
       ],
     },
