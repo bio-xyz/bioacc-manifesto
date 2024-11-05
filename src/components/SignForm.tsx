@@ -32,6 +32,7 @@ export default function SignForm() {
     defaultValues: {
       name: '',
       twitterHandle: '',
+      wallet: undefined,
       email: undefined,
       affiliation: undefined,
     },
@@ -42,6 +43,7 @@ export default function SignForm() {
       form.reset({
         name: '',
         twitterHandle: '',
+        wallet: undefined,
         email: undefined,
         affiliation: undefined,
       })
@@ -114,6 +116,33 @@ export default function SignForm() {
             </FormItem>
           )}
         />
+        <FormField
+          control={form.control}
+          name="wallet"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>
+                Your Ethereum Wallet Address or ENS Name (Optional)
+              </FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="0xB10E366eB17C59B9D66D35DB10c0F9629E34Db10"
+                  {...field}
+                  onChange={(event) =>
+                    field.onChange(event.target.value || undefined)
+                  }
+                  value={field.value || undefined}
+                />
+              </FormControl>
+              <FormDescription>
+                This will <strong className="font-bold">NOT</strong> be publicly
+                visible.
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
         <FormField
           control={form.control}
           name="email"

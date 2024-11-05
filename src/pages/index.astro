@@ -71,7 +71,18 @@ import Layout from '../layouts/Layout.astro'
     </div>
 
     <div class="flex flex-col" id="sign-form">
-      <h3 class="text-3xl my-8">Sign the Manifesto</h3>
+      <h3 class="text-3xl mt-8 my-2">Sign the Manifesto</h3>
+
+      <p class="leading-10">Sign the manifesto in the following steps:</p>
+      <ol class="mb-8 leading-10">
+        <li>1. Submit your information in the form below</li>
+        <li>2. Share hte manifesto on X using the hashtag #bioacc</li>
+        <li>
+          3. Once verified, your name will be added to the list of Manifesto
+          signers
+        </li>
+      </ol>
+
       <SignForm client:load />
     </div>
   </div>
