@@ -19,10 +19,12 @@ const signers = await readData()
       signers.map((signer, i) => (
         <TableRow key={`signer-${i}`}>
           <TableCell className="p-0">
-            <div class="text-primary font-normal">{signer.name}</div>
-            <div class="text-xs text-slate-400 sm:hidden">
-              @{signer.twitterHandle}
-            </div>
+            <a href={`https://x.com/${signer.twitterHandle}`} target="_blank">
+              <div class="text-primary font-normal">{signer.name}</div>
+              <div class="text-xs text-slate-400 sm:hidden">
+                @{signer.twitterHandle}
+              </div>
+            </a>
           </TableCell>
           <TableCell className="hidden sm:flex">
             <a
